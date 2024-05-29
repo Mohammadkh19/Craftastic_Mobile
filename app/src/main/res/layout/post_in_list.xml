@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="20dp"
+    android:layout_marginHorizontal="25dp"
+    >
+
+    <ImageView
+        android:id="@+id/imageViewProduct"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/pic_rounded_corners"
+        android:clipToOutline="true"
+        tools:src="@tools:sample/backgrounds/scenic"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/frameLayoutFavorite"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@id/imageViewProduct"
+        app:layout_constraintTop_toTopOf="@id/imageViewProduct"
+        android:padding="2dp"
+        android:background="@drawable/circle_background">
+
+        <ImageButton
+            android:id="@+id/buttonFavorite"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="center"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/favorite" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textViewProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        tools:text="Silk Dress"
+        app:layout_constraintTop_toBottomOf="@id/imageViewProduct"
+        app:layout_constraintStart_toStartOf="@id/imageViewProduct"
+        app:layout_constraintEnd_toEndOf="@id/imageViewProduct" />
+
+    <TextView
+        android:id="@+id/textViewProductPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:text="$250"
+        android:textColor="@color/icon_grey"
+        app:layout_constraintTop_toBottomOf="@id/textViewProductName"
+        app:layout_constraintStart_toStartOf="@id/textViewProductName"
+        app:layout_constraintEnd_toEndOf="@id/textViewProductName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

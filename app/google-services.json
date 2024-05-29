@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "840063535794",
+    "project_id": "craftastic-ac64b",
+    "storage_bucket": "craftastic-ac64b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840063535794:android:4d7bfe66d0ee04c86d57ab",
+        "android_client_info": {
+          "package_name": "com.example.craftastic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEDNGFL-KOhVsEqRp6OgsMQWwHO6hks7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

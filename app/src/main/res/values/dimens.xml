@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_xlarge">40sp</dimen>
+    <dimen name="text_size_largep">26sp</dimen>
+    <dimen name="text_size_large">22sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_xmedium">17sp</dimen>
+    <dimen name="text_size_small">15sp</dimen>
+    <dimen name="text_size_xsmall">12sp</dimen>
+    <dimen name="item_margin_start">30dp</dimen>
+    <dimen name="item_margin_top">10dp</dimen>
+</resources>

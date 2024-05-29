@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/post_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/buttonLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/imageCarouselContainer"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/backArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:paddingStart="10dp"
+                    android:elevation="4dp"
+                    app:tint="@color/white"
+                    android:src="@drawable/navigate_before"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/addToFavorites"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="10dp"
+                    android:elevation="4dp"
+                    app:tint="@color/white"
+                    android:src="@drawable/favorite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/imageCarousel"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <me.relex.circleindicator.CircleIndicator3
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginBottom="10dp"
+                    app:ci_margin="5dp"
+                    app:layout_constraintBottom_toBottomOf="@id/imageCarousel"
+                    app:layout_constraintEnd_toEndOf="@id/imageCarousel"
+                    app:layout_constraintStart_toStartOf="@id/imageCarousel" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sellerInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/light_grey"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/detailsLabelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/details"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/sellerNameLabelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/seller_name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/detailsLabelTextView" />
+
+
+                <TextView
+                    android:id="@+id/sellerNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/sellerNameLabelTextView"
+                    app:layout_constraintStart_toEndOf="@+id/sellerNameLabelTextView"
+                    app:layout_constraintTop_toTopOf="@+id/sellerNameLabelTextView" />
+
+                <TextView
+                    android:id="@+id/sellerEmailLabelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/email_"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintStart_toStartOf="@id/sellerNameLabelTextView"
+                    app:layout_constraintTop_toBottomOf="@id/sellerNameLabelTextView" />
+
+                <TextView
+                    android:id="@+id/emailTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/sellerNameTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/sellerNameTextView" />
+
+                <TextView
+                    android:id="@+id/itemConditionLabelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/condition_"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintStart_toStartOf="@id/sellerEmailLabelTextView"
+                    app:layout_constraintTop_toBottomOf="@id/sellerEmailLabelTextView" />
+
+                <TextView
+                    android:id="@+id/itemConditionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/emailTextView"
+                    app:layout_constraintTop_toBottomOf="@+id/emailTextView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/descriptionLabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_small" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:background="@color/grey" />
+
+            <TextView
+                android:id="@+id/locationLabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/location"
+                android:textSize="@dimen/text_size_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/locationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="@dimen/text_size_small"
+                app:drawableStartCompat="@drawable/location_on" />
+
+            <fragment
+                android:id="@+id/map"
+                class="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="5dp" />
+        </LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/callButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:gravity="center"
+            android:text="@string/call"
+            android:textSize="@dimen/text_size_medium"
+            app:icon="@drawable/phone"
+            app:iconGravity="textStart"
+            app:iconSize="@dimen/text_size_large" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/messageButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:gravity="center"
+            android:text="@string/message"
+            android:textSize="@dimen/text_size_medium"
+            app:icon="@drawable/email"
+            app:iconGravity="textStart"
+            app:iconSize="@dimen/text_size_large" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

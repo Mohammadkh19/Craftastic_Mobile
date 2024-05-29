@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvLogoutTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_out"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+         />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/edit_text_grey"
+        android:layout_marginTop="8dp"
+        />
+
+    <TextView
+        android:id="@+id/tvLogoutMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/are_you_sure_you_want_to_logout"
+        android:layout_marginTop="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        />
+
+    <Button
+        android:id="@+id/btnLogoutConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/log_out"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="?attr/colorError"
+        android:textColor="@android:color/white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        app:strokeColor="@color/grey"
+        app:strokeWidth="1dp"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="3dp"
+        android:textColor="@android:color/black" />
+
+</LinearLayout>

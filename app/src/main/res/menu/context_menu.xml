@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/remove_click_image"
+        android:title="Remove" />
+    <item
+        android:id="@+id/cancel_click_image"
+        android:title="Cancel" />
+
+
+</menu>

@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Craftastic" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/pink</item>
+
+    </style>
+
+    <style name="Theme.Craftastic" parent="Base.Theme.Craftastic" />
+
+    <style name="fab_3_rounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="TextAppearance.App.TextInputLayout" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:background">@null</item>
+    </style>
+
+</resources>
+

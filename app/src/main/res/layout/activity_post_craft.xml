@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_post_craft"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".PostCraft">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarPostCraft"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/toolbarPostCraftBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/navigate_before"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/toolbarPostCraftTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:gravity="center_vertical"
+            android:text="@string/post_craft"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="@android:color/white" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/craftScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@id/sellBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarPostCraft">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scrollInnerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/parentImageUploadCard"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_margin="12dp"
+                android:backgroundTint="@color/edit_text_grey"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/uploadTrigger"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/uploadPrompt"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="@string/upload_up_to_5_photos"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+                        <ImageView
+                            android:id="@+id/arrowIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/navigate_next"
+                            app:tint="@color/black" />
+                    </LinearLayout>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/childImageUploadCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/uploadTrigger"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:backgroundTint="@color/white"
+                        android:clickable="true"
+                        app:cardElevation="2dp"
+                        android:focusable="true">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:id="@+id/uploadIcon"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/add_a_photo"
+                                app:tint="@color/black" />
+
+                            <TextView
+                                android:id="@+id/uploadImagesText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginStart="8dp"
+                                android:layout_toEndOf="@id/uploadIcon"
+                                android:gravity="center"
+                                android:text="@string/upload_images"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                                android:textColor="@color/black" />
+
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/imagesRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/uploadTrigger"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                    <TextView
+                        android:id="@+id/textViewInstructions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:padding="8dp"
+                        android:text="@string/tap_on_images_to_edit_them_or_press_hold_and_move_for_reordering"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                android:id="@+id/craftTitleLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/title"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/parentImageUploadCard" />
+
+            <EditText
+                android:id="@+id/craftTitleEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="@color/edit_text_grey"
+                android:hint="@string/enter_title"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/craftTitleLabel"
+                android:inputType="textCapWords"
+                android:nextFocusDown="@id/craftPriceEditText"/>
+
+            <TextView
+                android:id="@+id/craftPriceLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/price"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/craftTitleEditText" />
+
+            <EditText
+                android:id="@+id/craftPriceEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="4dp"
+                android:hint="@string/enter_price"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="@color/edit_text_grey"
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:imeOptions="actionDone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/craftPriceLabel" />
+
+            <TextView
+                android:id="@+id/craftConditionLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/condition"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/craftPriceEditText" />
+
+            <RadioGroup
+                android:id="@+id/conditionRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:checkedButton="@+id/newRadioBtn"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/craftConditionLabel">
+
+                <RadioButton
+                    android:id="@+id/newRadioBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/newCondition" />
+
+                <RadioButton
+                    android:id="@+id/usedRadioBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/used" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/craftDescriptionLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/description"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/conditionRadioGroup" />
+
+            <EditText
+                android:id="@+id/craftDescriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/edit_text_background"
+                android:backgroundTint="@color/edit_text_grey"
+                android:hint="@string/write_description_about_your_item"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/craftDescriptionLabel" />
+
+            <TextView
+                android:id="@+id/locationLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/location"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/craftDescriptionEditText" />
+
+            <RadioGroup
+                android:id="@+id/locationOptions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/locationLabel">
+
+                <RadioButton
+                    android:id="@+id/radioUseCurrentLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/use_current_location" />
+
+
+                <RadioButton
+                    android:id="@+id/radioEnterAddressManually"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enter_address" />
+
+                <EditText
+                    android:id="@+id/editTextManualLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/type_your_address_here"
+                    android:background="@drawable/edit_text_background"
+                    android:backgroundTint="@color/edit_text_grey"
+                    android:padding="10dp"
+                    android:visibility="gone"/>
+            </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+    <Button
+        android:id="@+id/sellBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/poppins_semibold"
+        android:padding="12dp"
+        android:text="@string/sell_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
